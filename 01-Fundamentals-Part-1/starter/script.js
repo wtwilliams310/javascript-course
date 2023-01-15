@@ -140,6 +140,8 @@ function tournamentResults() {
     }
 }
 */
+
+/*
 const tournamentResults = () => {
     if (dolphinsAverage(dolphinsTotalScore) === koalasAverage(koalasTotalScore)) {
         return `The tournament is a draw!`;
@@ -181,9 +183,51 @@ function tournamentResultsBonus2() {
 }
 
 console.log(tournamentResultsBonus2());
+*/
+
+/*
+const day = 'funday';
+
+switch (day) {
+    case 'monday':
+        console.log('Go to coding meet up');
+        break;
+    case 'tuesday':
+        console.log('Eat pizza');
+        break;
+    case 'wednesday':
+    case 'thursday':
+        console.log('Buy donuts');
+        break;
+    case 'friday':
+        console.log('Go to the gym');
+        break;
+    case 'saturday':
+    case 'sunday':
+        console.log('Watch movies');
+        break;
+    default:
+        console.log('Not a valid day');
+}
+*/
+
+
+//Coding Challenge #4
 
 
 
+// const bill = 275;
+// console.log(typeof bill);
+// const bill = 40;
+const bill = 430;
+
+const tip = bill >= 50 && bill <= 300 ? Number(((15 / 100) * bill).toFixed(2)) : Number(((20 / 100) * bill).toFixed(2));
+
+const billTotal = bill + tip
+
+const result = `The bill was $${bill}, the tip was $${tip}, and the total value $${billTotal}`
+
+console.log(result)
 
 
 
