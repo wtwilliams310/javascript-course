@@ -91,4 +91,12 @@ console.log(markHigherBMIData2());
 // let bmiJohnData1 = weightJohnData1 / (heightJohnData1 ** 2);
 // let bmiJohnData2 = weightJohnData2 / (heightJohnData2 ** 2);
 
+//Coding Challenge #2
+
+const whoHasHigherBMI = (mark, john) => {
+    return mark > john ? `Mark's BMI is higher than John's!` : `John's BMI is higher than Mark's`
+}
+
+console.log(whoHasHigherBMI(bmiMarkData1, bmiJohnData1));
+console.log(whoHasHigherBMI(bmiMarkData2, bmiJohnData2));
 
