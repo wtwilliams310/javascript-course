@@ -107,7 +107,7 @@ console.log(friends.includes('Vino'));
 
 
 //Coding Challenge #2
-
+/*
 // function calcTip(bill) {
 // 	if (bill >= 50 && bill <= 300) {
 // 		return bill * .15;
@@ -144,10 +144,103 @@ function allTips(arrays) {
 // }
 
 console.log(allTips(bills));
+*/
+
+
+//Dot vs. Bracket Notation
+/*
+const titus = {
+	firstName: "Titus",
+	lastName: "Williams",
+	job: 'programmer',
+	age: 46,
+	friends: ['Bubbles', 'Vino', 'Sweet-Pea']
+};
+
+console.log(titus);
+
+titus.location = 'San Antonio';
+titus.email = 'wtwilliams310@gmail.com'
+console.log(titus);
+
+const numberOfFriends = titus.friends.length
+// console.log(numberOfFriends);
+console.log(`${titus.firstName} has ${titus.friends.length} friends, and his best friend is called ${titus.friends[0]}`);
+
+*/
 
 
 
+//Object Methods
+/*
+const titus = {
+	firstName: "Titus",
+	lastName: "Williams",
+	job: 'programmer',
+	birthYear: 1976,
+	cats: ['Bubbles', 'Vino', 'Sweet-Pea'],
+	hasDriversLicense: true,
+
+	// calcAge: function (birthYear) {
+	// 	return 2037 - birthYear
+	// }
+
+	// calcAge: function () {
+	// 	return 2037 - this.birthYear
+	// }
+
+	calcAge: function () {
+		this.age = 2037 - this.birthYear;
+		return this.age
+	},
+
+	information: function () {
+		return `${this.firstName} is a ${this.calcAge()} year old programmer, and he has ${this.hasDriversLicense ? 'a' : 'no'} driver's license.`
+	}
+};
+
+// console.log(titus.calcAge());
+
+console.log(titus.information());
+
+//Challenge
+
+*/
+
+//Coding Challenge #3
+
+const mark = {
+	firstName: 'Mark',
+	lastName: 'Miller',
+	weight: 78,
+	height: 1.69,
+
+	calcBMI: function () {
+		this.bmi = Number((this.weight / (this.height ** 2)).toFixed(2));
+		// this.bmi = result
+		return this.bmi
+	}
+};
 
 
 
+const john = {
+	firstName: 'John',
+	lastName: 'Smith',
+	weight: 92,
+	height: 1.95,
 
+	calcBMI: function () {
+		this.bmi = Number((this.weight / (this.height ** 2)).toFixed(2));
+		return this.bmi
+	}
+};
+
+mark.calcBMI();
+john.calcBMI();
+
+const comparison = () => {
+	return mark.bmi > john.bmi ? `${mark.firstName}'s BMI (${mark.bmi}) is higher than ${john.firstName}'s (${john.bmi})` : `${john.firstName}'s BMI (${john.bmi}) is higher than ${mark.firstName}'s (${mark.bmi})`
+}
+
+console.log(comparison());
