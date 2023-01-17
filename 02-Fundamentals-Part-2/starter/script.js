@@ -208,7 +208,7 @@ console.log(titus.information());
 */
 
 //Coding Challenge #3
-
+/*
 const mark = {
 	firstName: 'Mark',
 	lastName: 'Miller',
@@ -244,3 +244,158 @@ const comparison = () => {
 }
 
 console.log(comparison());
+*/
+
+// const titus = [
+// 	'Titus',
+// 	'Williams',
+// 	2037 - 1976,
+// 	'programmer',
+// 	['Vino', 'Bubbles', 'Sweet-Pea']
+// ];
+
+//Using a for-loop
+// const types = [];
+// for (let i = 0; i < titus.length; i++) {
+// 	//Filling an array
+// 	// types[i] = typeof titus[i]
+// 	types.push(typeof titus[i])
+// 	// console.log(titus[i], typeof titus[i]);
+// }
+
+//Using .forEach method
+// const types = [];
+// titus.forEach(key => {
+// 	types.push(typeof key)
+// })
+
+// console.log(types);
+/*
+const years = ['1991', '2007', '1984', '2020'];
+const ages = [];
+
+years.forEach(year => {
+	ages.push(2037 - year)
+})
+
+console.log(ages);
+
+//Continue and Break
+const types = [];
+
+console.log('---ONLY STRINGS---');
+for (let i = 0; i < titus.length; i++) {
+	if (typeof titus[i] !== 'string') continue;
+	console.log(titus[i], typeof titus[i]);
+}
+
+console.log('---BREAK WITH NUMBER---');
+for (let i = 0; i < titus.length; i++) {
+	if (typeof titus[i] === 'number') break;
+	console.log(titus[i], typeof titus[i]);
+}
+*/
+
+
+//LOOPS BACKWARDS AND LOOPS IN LOOPS
+
+const titus = [
+	'Titus',
+	'Williams',
+	2037 - 1976,
+	'programmer',
+	['Vino', 'Bubbles', 'Sweet-Pea']
+];
+
+//loop backwards
+
+// for (let i = titus.length - 1; i >= 0; i--) {
+// 	console.log(i, titus[i]);
+// }
+
+// for (let exercise = 1; exercise < 4; exercise++) {
+// 	console.log(`------ Starting exercise ${exercise}`);
+
+// 	for (let rep = 1; rep < 6; rep++) {
+// 		console.log(`Lifting weights repetition ${rep}`);
+// 	}
+// };
+
+
+//WHILE LOOP
+
+// for (let rep = 1; rep <= 10; rep++) {
+// 	console.log(`Lifting weights repetition ${rep}`);
+// }
+
+
+// let rep = 1;
+// while (rep <= 10) {
+// 	console.log(`Lifting weights repetition ${rep}`);
+// 	rep++;
+// }
+
+//no counter needed
+/*
+let dice = Math.trunc(Math.random() * 6) + 1;
+// console.log(dice);
+
+while (dice !== 6) {
+	console.log(`You rolled a ${dice}`);
+	dice = Math.trunc(Math.random() * 6) + 1;
+	if (dice === 6) console.log(`Loop is about to end...`);
+}
+*/
+
+
+//Coding Challenge #4
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const totals = [];
+
+function calcTip(bill) {
+	if (bill >= 50 && bill <= 300) {
+		return bill * .15;
+	} return bill * .20;
+}
+
+// Using for-loop
+
+// for (let i = 0; i < bills.length; i++) {
+// 	tips.push(calcTip(bills[i]));
+// 	totals.push(calcTip(bills[i]) + bills[i]);
+// }
+
+// Using forEach
+
+bills.forEach(bill => {
+	const tip = calcTip(bill);
+	tips.push(tip);
+	totals.push(tip + bill)
+})
+
+console.log(tips);
+console.log(totals);
+
+// Using for-loop
+
+// function calcAverage(arr) {
+// 	let total = 0;
+// 	for (let i = 0; i < arr.length; i++) {
+// 		count += arr[i];
+// 	} return total / arr.length
+// }
+
+// Using forEach()
+console.log(calcAverage(totals));
+
+function calcAverage(arr) {
+	let total = 0;
+	arr.forEach(bill => {
+		total += bill;
+	});
+	return total / arr.length
+}
+
+console.log(calcAverage(totals));
