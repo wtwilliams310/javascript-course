@@ -27,11 +27,55 @@ const temperatures = [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5];
 // subtrach index 0 from index 1
 // return result
 
-const emptyArray = [];
+// const minTemps = (array1, array2) => {
+//   const emptyArray = [];
 
-const minTemps = array => {
-  array.forEach(number => {
-    if (typeof number !== 'string') emptyArray.push(number);
+//   const temps = array1.concat(array2);
+//   temps.forEach(temp => {
+//     if (typeof temp !== 'string') emptyArray.push(temp);
+//   });
+
+//   const min = emptyArray.reduce((a, b) => (a < b ? a : b));
+
+//   const max = emptyArray.reduce((a, b) => (a > b ? a : b));
+
+//   return max - min;
+// };
+
+// console.log(minTemps(temperatures));
+
+// Problem 2:
+// Function should now receive 2 arrays of temps
+
+// const array1 = [2, 4, 1, 16, 'error'];
+// const array2 = [5, 4, 1, 16, 'error'];
+
+// const array3 = array1.concat(array2);
+
+// console.log(array3);
+
+/*
+const measureKelvin = function () {
+  const measurement = {
+    type: 'temp',
+    unit: 'celsius',
+    // value: Number(prompt('Degrees celsuis')),
+    value: 10,
+  };
+
+  const kelvin = measurement.value + 273;
+  return kelvin;
+};
+
+console.log(measureKelvin());
+
+// Using a debugger
+const minTempsBug = (array1, array2) => {
+  const emptyArray = [];
+
+  const temps = array1.concat(array2);
+  temps.forEach(temp => {
+    if (typeof temp !== 'string') emptyArray.push(temp);
   });
 
   const min = emptyArray.reduce((a, b) => (a < b ? a : b));
@@ -41,14 +85,21 @@ const minTemps = array => {
   return max - min;
 };
 
-console.log(minTemps(temperatures));
+const amplitudeBug = minTempsBug([3, 5, 1], [9, 4, 5]);
 
-// Problem 2:
-// Function should now receive 2 arrays of temps
+console.log(amplitudeBug);
+*/
 
-const array1 = [2, 4, 1, 16, 'error'];
-const array2 = [5, 4, 1, 16, 'error'];
+// Coding Challenge #1
 
-const array3 = array1.concat(array2);
+const printForecast = arr => {
+  let result = `...`;
+  for (let i = 0; i < arr.length; i++) {
+    result += `${arr[i]}\xB0 in ${[i + 1]} days...`;
+    // console.log(`${arr[i]}\xB0 in ${[i + 1]} days...`);
+  }
+  console.log(result);
+};
 
-console.log(array3);
+printForecast([17, 21, 23], 'Data 1');
+printForecast([12, 5, -5, 0, 4], 'Data 2');
