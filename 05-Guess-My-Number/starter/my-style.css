@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --clr-lime: ;
+}
+
+.page-wrapper {
+  min-height: 100vh;
+  background-color: rgb(52, 172, 52);
+  color: white;
+}
+
+.header {
+  display: flex;
+}
+
+.replay,
+.check-btn {
+  color: black;
+}
