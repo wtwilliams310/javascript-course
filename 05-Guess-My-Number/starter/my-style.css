@@ -6,7 +6,8 @@
 }
 
 :root {
-  --clr-lime: rgb(52, 172, 52);
+  --clr-win: rgb(52, 172, 52);
+  --clr-start: #000;
 
   --ff-body: 'Press Start 2P', sans-serif;
 }
@@ -17,7 +18,7 @@ body {
 
 .page-wrapper {
   min-height: 100vh;
-  background-color: var(--clr-lime);
+  background-color: var(--clr-start);
   color: white;
   padding: 1rem;
 }
@@ -99,7 +100,6 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 2em;
-  /* flex-shrink: 0; */
   width: 50%;
 }
 
@@ -128,7 +128,15 @@ body {
   margin-top: 1.5rem;
 }
 
-.replay-btn,
-.check-btn {
+.btn {
   color: black;
+}
+
+.btn:hover {
+  background-color: darkgray;
+  cursor: pointer;
+}
+
+input {
+  cursor: pointer;
 }
