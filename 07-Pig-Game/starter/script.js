@@ -16,13 +16,23 @@ const dice = document.querySelector('.dice');
 
 let randomNumber = Math.trunc(Math.random() * 6) + 1;
 
-const diceImage = () => {
-  if (randomNumber === 1) dice.src = 'dice-1.png';
-  if (randomNumber === 2) dice.src = 'dice-2.png';
-  if (randomNumber === 3) dice.src = 'dice-3.png';
-  if (randomNumber === 4) dice.src = 'dice-4.png';
-  if (randomNumber === 5) dice.src = 'dice-5.png';
-  if (randomNumber === 6) dice.src = 'dice-6.png';
+let playing;
+
+const init = function () {
+  playing = true;
+  dice.classList.add('hidden');
+  player1.classList.remove('player--winner');
+  player0.classList.remove('player--winner');
+  reset(allScores);
+  reset(allCurrentScores);
+  player1.classList.remove('player--active');
+  player0.classList.add('player--active');
+};
+
+init();
+
+const diceImage = function () {
+  dice.src = `dice-${randomNumber}.png`;
 };
 
 // Removes active class and assigns to next player
@@ -52,61 +62,71 @@ const currentScoreTracker = currentScorePlayer => {
 function addCurrentTotal() {
   if (player0.classList.contains('player--active')) {
     score0.textContent = Number(score0.textContent) + count;
+    // playerWins();
     count = 0;
     currentScore0.textContent = count;
   } else if (player1.classList.contains('player--active')) {
     score1.textContent = Number(score1.textContent) + count;
+    // playerWins();
     count = 0;
     currentScore1.textContent = count;
   }
 }
 
-// Resets all scores
+// Player reaches 100 points
+const playerWins = () => {
+  if (Number(score0.textContent) >= 10) {
+    playing = false;
+    player0.classList.add('player--winner');
+    dice.classList.add('hidden');
+  } else if (Number(score1.textContent) >= 10) {
+    playing = false;
+    player1.classList.add('player--winner');
+    dice.classList.add('hidden');
+  } else {
+    addRemoveActive();
+  }
+};
+
+// Resets all scores for class
 function reset(scores) {
+  playing = true;
   for (let i = 0; i < scores.length; i++) {
-    console.log(scores.textContent);
     scores[i].textContent = 0;
   }
 }
 
-let countActivePlayer = 1;
-
+// current score count
 let count = 0;
-// holdCount();
 
 // Eventlistener on roll dice button
 rollBtn.addEventListener('click', () => {
-  randomNumber = Math.trunc(Math.random() * 6) + 1;
-  if (player0.classList.contains('player--active')) {
-    console.log(randomNumber, 'first random number');
-
-    diceImage();
-    currentScoreTracker(currentScore0);
-    // holdCount();
-  } else if (player1.classList.contains('player--active')) {
-    diceImage();
-    currentScoreTracker(currentScore1);
-    // holdCount();
-  } else {
-    console.log('wrong logic');
+  if (playing) {
+    // random number
+    randomNumber = Math.trunc(Math.random() * 6) + 1;
+    // show dice
+    dice.classList.remove('hidden');
+    if (player0.classList.contains('player--active')) {
+      diceImage();
+      currentScoreTracker(currentScore0);
+      // holdCount();
+    } else if (player1.classList.contains('player--active')) {
+      diceImage();
+      currentScoreTracker(currentScore1);
+      // holdCount();
+    }
   }
 });
 
 // Eventlistener on hold button
 holdBtn.addEventListener('click', () => {
-  // Current points added to player points
-  addCurrentTotal();
+  if (playing) {
+    // Current points added to player points
+    addCurrentTotal();
 
-  // Removes active class and assigns to next player
-  addRemoveActive();
+    playerWins();
+  }
 });
 
 // New Game button eventlistener
-newBtn.addEventListener('click', () => {
-  reset(allScores);
-  reset(allCurrentScores);
-  if (!player0.classList.contains('player--active')) {
-    player1.classList.remove('player-active');
-    player0.classList.add('player--active');
-  }
-});
+newBtn.addEventListener('click', init);
