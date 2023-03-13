@@ -175,7 +175,7 @@ const restaurant = {
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
   openingHours: {
     thu: {
-      open: 12,
+      open: 10,
       close: 22,
     },
     fri: {
